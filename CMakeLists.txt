@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.4)
-
 project(xsd-coverage)
-
-add_executable(XSDCoverage src/xsd_coverage.cpp)
+set(CMAKE_CXX_FLAGS "-lstdc++fs")
+add_executable(XSDCoverage src/XSDCoverage.cpp src/RecursiveFilesExtractor.cpp src/RecursiveFilesExtractor.h src/XMLUtils.cpp src/XMLUtils.h lib/rapidxml.hpp)
+target_link_libraries(XSDCoverage PRIVATE stdc++fs)
