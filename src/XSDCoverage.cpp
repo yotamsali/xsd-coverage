@@ -4,10 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    RecursiveFilesExtractor xmls_extractor = RecursiveFilesExtractor("C:\\temp\\xmls", ".xml");
-    RecursiveFilesExtractor xsds_extractor = RecursiveFilesExtractor("C:\\temp\\xsds", ".xsd");
-    FilesMap xmls_map = xmls_extractor.get_files_map();
-    FilesMap xsds_map = xsds_extractor.get_files_map();
-
+    FilesMap xmls_map = RecursiveFilesExtractor("C:\\temp\\xmls", ".xml").get_files_map();
+    FilesMap xsds_map = RecursiveFilesExtractor("C:\\temp\\xsds", ".xsd").get_files_map();
     return 0;
 }
