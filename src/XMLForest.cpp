@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include "../lib/rapidxml_utils.hpp"
 #include "XMLForest.h"
 
@@ -6,7 +7,11 @@ void XMLForest::insert_xml_file_(std::string xml_path) {
     rapidxml::file<> xml_file(xml_path.c_str());
     rapidxml::xml_document<> xml_document;
     xml_document.parse<0>(xml_file.data());
-    return;
+    rapidxml::xml_node<>* cur_node = xml_document.first_node();
+    while (cur_node->next_sibling() != NULL ) {
+        std::cout << cur_node->name() << std::endl;
+        cur_node = cur_node->next_sibling();
+    }
 }
 
 void XMLForest::insert_xsd_file_(std::string xsd_path) {

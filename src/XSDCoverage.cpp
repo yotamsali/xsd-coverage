@@ -1,10 +1,10 @@
-#include <iostream>
 #include "RecursiveFilesExtractor.h"
 #include "XMLForest.h"
-#include "../lib/rapidxml.hpp"
 
+//TODO: Handle memory leaks
 int main(int argc, char *argv[])
 {
+    //TODO: Verify that dir exists and link to input parameters
     PathList xmls_paths = RecursiveFilesExtractor("C:\\temp\\xmls", ".xml").get_recursive_paths_list();
     PathList xsds_paths = RecursiveFilesExtractor("C:\\temp\\xsds", ".xsd").get_recursive_paths_list();
     XMLForest * forest = new XMLForest();
